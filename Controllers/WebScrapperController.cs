@@ -13,17 +13,18 @@ namespace WebScraperApi.Controllers
         [HttpGet]
         public IActionResult ScrapeData()
         {
+            
             // URL do site que será raspado
-            string url = "http://resultado.caixa/2024/#/resultado/202403/1623";
+            string url = "http://caixa.gov.br";
 
             // Realiza a requisição GET para obter o conteúdo da página
             var web = new HtmlWeb();
             var doc = web.Load(url);
-
-
+            var alltext = doc.DocumentNode.InnerText;
+            
 
             // Encontra a tabela desejada no HTML da página (substitua "minhaTabela" pelo ID ou classe da tabela)
-            var alltext = doc.DocumentNode.InnerText;
+            //var alltext = doc.DocumentNode.InnerText;
             //var table = doc.DocumentNode.SelectSingleNode("//table[@id='tabResult2']");
             //var stringbuilder = new StringBuilder();
             /*if (table != null)
