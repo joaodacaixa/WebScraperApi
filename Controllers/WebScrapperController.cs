@@ -19,13 +19,14 @@ namespace WebScraperApi.Controllers
             // Realiza a requisição GET para obter o conteúdo da página
             var web = new HtmlWeb();
             var doc = web.Load(url);
-           
 
-           
+
+
             // Encontra a tabela desejada no HTML da página (substitua "minhaTabela" pelo ID ou classe da tabela)
-            var table = doc.DocumentNode.SelectSingleNode("//table[@id='tabResult2']");
-            var stringbuilder = new StringBuilder();
-            if (table != null)
+            var alltext = doc.DocumentNode.InnerText;
+            //var table = doc.DocumentNode.SelectSingleNode("//table[@id='tabResult2']");
+            //var stringbuilder = new StringBuilder();
+            /*if (table != null)
             {
                 //var stringbuilder = new StringBuilder();
                 // Extrai os dados da tabela
@@ -46,7 +47,12 @@ namespace WebScraperApi.Controllers
             {
                 stringbuilder.AppendLine("fim do arquivo -sem registros");
                 return NotFound("Tabela não encontrada");
-            }
+            }*/
+            string caminho = @"C:\temp";
+            string filePath = Path.Combine(caminho, "dados_lista.txt");
+            System.IO.File.WriteAllText(filePath, alltext);
+            return Ok("texto raspado salvo em " + filePath);
+
         }
     }
 }
