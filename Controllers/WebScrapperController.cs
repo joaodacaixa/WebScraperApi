@@ -14,7 +14,7 @@ namespace WebScraperApi.Controllers
         public IActionResult ScrapeData()
         {
             // URL do site que será raspado
-            string url = "https://resultado.caixa";
+            string url = "http://resultado.caixa/2024/#/resultado/202403/1623";
 
             // Realiza a requisição GET para obter o conteúdo da página
             var web = new HtmlWeb();
@@ -33,7 +33,7 @@ namespace WebScraperApi.Controllers
                 {
                     stringbuilder.AppendLine(item.InnerText.Trim());
                 }
-                string caminho = @"C:\Users\";
+                string caminho = @"C:\temp\";
                 string filePath =Path.Combine(caminho, "dados_lista.txt");
                 System.IO.File.WriteAllText(filePath, stringbuilder.ToString());
                // var listeditem = orderedlist.SelectNodes(".//li");
