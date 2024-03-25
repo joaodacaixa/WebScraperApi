@@ -23,17 +23,18 @@ namespace WebScraperApi.Controllers
 
            
             // Encontra a tabela desejada no HTML da página (substitua "minhaTabela" pelo ID ou classe da tabela)
-            var table = doc.DocumentNode.SelectSingleNode("//table@[id='tabResult2']");
-
+            var table = doc.DocumentNode.SelectSingleNode("//table[@id='tabResult2']");
+            var stringbuilder = new StringBuilder();
             if (table != null)
             {
-                var stringbuilder = new StringBuilder();
+                //var stringbuilder = new StringBuilder();
                 // Extrai os dados da tabela
                 foreach (var item in table.SelectNodes("//tr"))
                 {
                     stringbuilder.AppendLine(item.InnerText.Trim());
                 }
-                string caminho = @"C:\temp\";
+                stringbuilder.AppendLine("fim do arquivo");
+                string caminho = @"C:\temp";
                 string filePath =Path.Combine(caminho, "dados_lista.txt");
                 System.IO.File.WriteAllText(filePath, stringbuilder.ToString());
                // var listeditem = orderedlist.SelectNodes(".//li");
@@ -43,6 +44,7 @@ namespace WebScraperApi.Controllers
             }
             else
             {
+                stringbuilder.AppendLine("fim do arquivo -sem registros");
                 return NotFound("Tabela não encontrada");
             }
         }
