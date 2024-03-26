@@ -15,7 +15,7 @@ namespace WebScraperApi.Controllers
         {
             
             // URL do site que será raspado
-            string url = "http://caixa.gov.br";
+            string url = "http://globo.com";
 
             // Realiza a requisição GET para obter o conteúdo da página
             var web = new HtmlWeb();
@@ -50,7 +50,7 @@ namespace WebScraperApi.Controllers
                 return NotFound("Tabela não encontrada");
             }*/
             string caminho = @"C:\temp";
-            string filePath = Path.Combine(caminho, "dados_lista.txt");
+            string filePath = Path.Combine(caminho, "dados_lista_CEF.txt");
             System.IO.File.WriteAllText(filePath, alltext);
             return Ok("texto raspado salvo em " + filePath);
 
