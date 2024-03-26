@@ -15,7 +15,7 @@ namespace WebScraperApi.Controllers
         {
             
             // URL do site que será raspado
-            string url = "http://globo.com";
+            string url = "http://www.mercadolivre.com.br";
 
             // Realiza a requisição GET para obter o conteúdo da página
             var web = new HtmlWeb();
