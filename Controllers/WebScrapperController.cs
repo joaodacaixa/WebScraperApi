@@ -24,7 +24,7 @@ namespace WebScraperApi.Controllers
             string caminho = @"C:\temp";
             string filePath = Path.Combine(caminho, "dados_lista_CEF.txt");
             System.IO.File.WriteAllText(filePath, alltext);
-            //return Ok(alltext);
+            return Ok(alltext);
 
             // Encontra a tabela desejada no HTML da página (substitua "minhaTabela" pelo ID ou classe da tabela)
             //var alltext = doc.DocumentNode.InnerText;
@@ -53,7 +53,7 @@ namespace WebScraperApi.Controllers
                 return NotFound("Tabela não encontrada");
             }*/
           
-            return Ok("texto raspado salvo em " + filePath);
+            //return Ok("texto raspado salvo em " + filePath);
 
         }
     }
