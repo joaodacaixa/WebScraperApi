@@ -23,8 +23,8 @@ namespace WebScraperApi.Controllers
             var web = new HtmlWeb();
             var doc = web.Load(url);
             var alltext = doc.DocumentNode.InnerText;
-            string caminho = @"C:\temp";
-            string filePath = Path.Combine(caminho, "scrap.txt");
+           // string caminho = @"C:\temp";
+            string filePath = "scrap.txt";
             System.IO.File.WriteAllText(filePath, alltext);
             return Ok("foi e voltou ");
 
