@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using HtmlAgilityPack;
 using System.Net;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System;
 
 namespace WebScraperApi.Controllers
 {
@@ -11,7 +13,7 @@ namespace WebScraperApi.Controllers
     public class ScraperController : ControllerBase
     {
         [HttpGet]
-        public IActionResult ScrapeData()
+        public  IActionResult ScrapeData()
         {
 
             // URL do site que será raspado
@@ -21,12 +23,12 @@ namespace WebScraperApi.Controllers
 
             // Realiza a requisição GET para obter o conteúdo da página
             var web = new HtmlWeb();
-            var doc = web.Load(url);
-            var alltext = doc.DocumentNode.InnerText;
-           // string caminho = @"C:\temp";
+            var doc =  web.Load(url);
+            var alltext =  doc.DocumentNode.InnerText;
+            // string caminho = @"C:\temp";
             string filePath = "scrap.txt";
             System.IO.File.WriteAllText(filePath, alltext);
-            return Ok("foi e voltou ");
+            return Ok(alltext);
 
             // Encontra a tabela desejada no HTML da página (substitua "minhaTabela" pelo ID ou classe da tabela)
             //var alltext = doc.DocumentNode.InnerText;
@@ -58,5 +60,7 @@ namespace WebScraperApi.Controllers
             //return Ok("texto raspado salvo em " + filePath);
 
         }
+
+
     }
 }
