@@ -17,7 +17,7 @@ namespace WebScraperApi.Controllers
         {
 
             // URL do site que será raspado
-            string url = "http://resultado.caixa/2024/#/resultado/202403/1623";
+            string url = "http://caixa.gov.br"; //"http://resultado.caixa/2024/#/resultado/202403/1623";
 
             // Realiza a requisição GET para obter o conteúdo da página
             var web = new HtmlWeb();
