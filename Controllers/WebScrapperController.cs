@@ -17,17 +17,15 @@ namespace WebScraperApi.Controllers
         {
 
             // URL do site que será raspado
-            string url = "http://globo.com";
-
-                //"http://resultado.caixa/2024/#/resultado/202403/1623";
+            string url = "http://resultado.caixa/2024/#/resultado/202403/1623";
 
             // Realiza a requisição GET para obter o conteúdo da página
             var web = new HtmlWeb();
             var doc =  web.Load(url);
             var alltext =  doc.DocumentNode.InnerText;
             // string caminho = @"C:\temp";
-            string filePath = "scrap.txt";
-            System.IO.File.WriteAllText(filePath, alltext);
+            //string filePath = "scrap.txt";
+            //System.IO.File.WriteAllText(filePath, alltext);
             return Ok(alltext);
 
             // Encontra a tabela desejada no HTML da página (substitua "minhaTabela" pelo ID ou classe da tabela)
