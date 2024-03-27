@@ -13,18 +13,20 @@ namespace WebScraperApi.Controllers
         [HttpGet]
         public IActionResult ScrapeData()
         {
-            
+
             // URL do site que será raspado
-            //string url = "http://resultado.caixa/2024/#/resultado/202403/1623";
+            string url = "http://globo.com";
+
+                //"http://resultado.caixa/2024/#/resultado/202403/1623";
 
             // Realiza a requisição GET para obter o conteúdo da página
-            //var web = new HtmlWeb();
-            //var doc = web.Load(url);
+            var web = new HtmlWeb();
+            var doc = web.Load(url);
             //var alltext = doc.DocumentNode.InnerText;
            // string caminho = @"C:\temp";
             //string filePath = Path.Combine(caminho, "dados_lista_CEF.txt");
            // System.IO.File.WriteAllText(filePath, alltext);
-            return Ok("foi e voltou");
+            return Ok("foi e voltou " + doc);
 
             // Encontra a tabela desejada no HTML da página (substitua "minhaTabela" pelo ID ou classe da tabela)
             //var alltext = doc.DocumentNode.InnerText;
