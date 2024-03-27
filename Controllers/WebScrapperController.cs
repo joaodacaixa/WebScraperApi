@@ -26,7 +26,7 @@ namespace WebScraperApi.Controllers
             string caminho = @"C:\temp";
             string filePath = Path.Combine(caminho, "scrap.txt");
             System.IO.File.WriteAllText(filePath, alltext);
-            return Ok("foi e voltou " + filePath);
+            return Ok("foi e voltou ");
 
             // Encontra a tabela desejada no HTML da página (substitua "minhaTabela" pelo ID ou classe da tabela)
             //var alltext = doc.DocumentNode.InnerText;
