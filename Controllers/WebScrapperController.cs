@@ -23,7 +23,7 @@ namespace WebScraperApi.Controllers
             var web = new HtmlWeb();
             var doc = web.Load(url);
             var alltext = doc.DocumentNode.InnerText;
-           // string caminho = @"C:\temp";
+            //string caminho = @"C:\temp";
             //string filePath = Path.Combine(caminho, "dados_lista_CEF.txt");
            // System.IO.File.WriteAllText(filePath, alltext);
             return Ok("foi e voltou " + alltext);
