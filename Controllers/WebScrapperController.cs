@@ -22,11 +22,11 @@ namespace WebScraperApi.Controllers
             // Realiza a requisição GET para obter o conteúdo da página
             var web = new HtmlWeb();
             var doc = web.Load(url);
-            //var alltext = doc.DocumentNode.InnerText;
+            var alltext = doc.DocumentNode.InnerText;
            // string caminho = @"C:\temp";
             //string filePath = Path.Combine(caminho, "dados_lista_CEF.txt");
            // System.IO.File.WriteAllText(filePath, alltext);
-            return Ok("foi e voltou " + doc);
+            return Ok("foi e voltou " + alltext);
 
             // Encontra a tabela desejada no HTML da página (substitua "minhaTabela" pelo ID ou classe da tabela)
             //var alltext = doc.DocumentNode.InnerText;
